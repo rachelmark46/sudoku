@@ -1,0 +1,103 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.sudoku"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->/Users/sanuranjan/AndroidStudioProjects/np/sudoku/android/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="31" />
+9-->/Users/sanuranjan/AndroidStudioProjects/np/sudoku/android/app/src/main/AndroidManifest.xml
+10
+11    <application
+12        android:name="android.app.Application"
+12-->/Users/sanuranjan/AndroidStudioProjects/np/sudoku/android/app/src/main/AndroidManifest.xml:6:9-42
+13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+13-->[androidx.core:core:1.6.0] /Users/sanuranjan/.gradle/caches/transforms-3/acbce933e4b464a5224ed377a62db1f5/transformed/core-1.6.0/AndroidManifest.xml:24:18-86
+14        android:icon="@mipmap/ic_launcher"
+14-->/Users/sanuranjan/AndroidStudioProjects/np/sudoku/android/app/src/main/AndroidManifest.xml:7:9-43
+15        android:label="sudoku" >
+15-->/Users/sanuranjan/AndroidStudioProjects/np/sudoku/android/app/src/main/AndroidManifest.xml:5:9-31
+16        <activity
+16-->/Users/sanuranjan/AndroidStudioProjects/np/sudoku/android/app/src/main/AndroidManifest.xml:8:9-32:20
+17            android:name="com.example.sudoku.MainActivity"
+17-->/Users/sanuranjan/AndroidStudioProjects/np/sudoku/android/app/src/main/AndroidManifest.xml:9:13-41
+18            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+18-->/Users/sanuranjan/AndroidStudioProjects/np/sudoku/android/app/src/main/AndroidManifest.xml:13:13-163
+19            android:exported="true"
+19-->/Users/sanuranjan/AndroidStudioProjects/np/sudoku/android/app/src/main/AndroidManifest.xml:10:13-36
+20            android:hardwareAccelerated="true"
+20-->/Users/sanuranjan/AndroidStudioProjects/np/sudoku/android/app/src/main/AndroidManifest.xml:14:13-47
+21            android:launchMode="singleTop"
+21-->/Users/sanuranjan/AndroidStudioProjects/np/sudoku/android/app/src/main/AndroidManifest.xml:11:13-43
+22            android:theme="@style/LaunchTheme"
+22-->/Users/sanuranjan/AndroidStudioProjects/np/sudoku/android/app/src/main/AndroidManifest.xml:12:13-47
+23            android:windowSoftInputMode="adjustResize" >
+23-->/Users/sanuranjan/AndroidStudioProjects/np/sudoku/android/app/src/main/AndroidManifest.xml:15:13-55
+24
+25            <!--
+26                 Specifies an Android theme to apply to this Activity as soon as
+27                 the Android process has started. This theme is visible to the user
+28                 while the Flutter UI initializes. After that, this theme continues
+29                 to determine the Window background behind the Flutter UI.
+30            -->
+31            <meta-data
+31-->/Users/sanuranjan/AndroidStudioProjects/np/sudoku/android/app/src/main/AndroidManifest.xml:21:13-24:17
+32                android:name="io.flutter.embedding.android.NormalTheme"
+32-->/Users/sanuranjan/AndroidStudioProjects/np/sudoku/android/app/src/main/AndroidManifest.xml:22:15-70
+33                android:resource="@style/NormalTheme" />
+33-->/Users/sanuranjan/AndroidStudioProjects/np/sudoku/android/app/src/main/AndroidManifest.xml:23:15-52
+34            <meta-data
+34-->/Users/sanuranjan/AndroidStudioProjects/np/sudoku/android/app/src/main/AndroidManifest.xml:25:13-27:73
+35                android:name="com.google.android.gms.ads.APPLICATION_ID"
+35-->/Users/sanuranjan/AndroidStudioProjects/np/sudoku/android/app/src/main/AndroidManifest.xml:26:17-73
+36                android:value="ca-app-pub-3940256099942544~3347511713" />
+36-->/Users/sanuranjan/AndroidStudioProjects/np/sudoku/android/app/src/main/AndroidManifest.xml:27:17-71
+37
+38            <intent-filter>
+38-->/Users/sanuranjan/AndroidStudioProjects/np/sudoku/android/app/src/main/AndroidManifest.xml:28:13-31:29
+39                <action android:name="android.intent.action.MAIN" />
+39-->/Users/sanuranjan/AndroidStudioProjects/np/sudoku/android/app/src/main/AndroidManifest.xml:29:17-68
+39-->/Users/sanuranjan/AndroidStudioProjects/np/sudoku/android/app/src/main/AndroidManifest.xml:29:25-66
+40
+41                <category android:name="android.intent.category.LAUNCHER" />
+41-->/Users/sanuranjan/AndroidStudioProjects/np/sudoku/android/app/src/main/AndroidManifest.xml:30:17-76
+41-->/Users/sanuranjan/AndroidStudioProjects/np/sudoku/android/app/src/main/AndroidManifest.xml:30:27-74
+42            </intent-filter>
+43        </activity>
+44        <!--
+45             Don't delete the meta-data below.
+46             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+47        -->
+48        <meta-data
+48-->/Users/sanuranjan/AndroidStudioProjects/np/sudoku/android/app/src/main/AndroidManifest.xml:35:9-37:33
+49            android:name="flutterEmbedding"
+49-->/Users/sanuranjan/AndroidStudioProjects/np/sudoku/android/app/src/main/AndroidManifest.xml:36:13-44
+50            android:value="2" />
+50-->/Users/sanuranjan/AndroidStudioProjects/np/sudoku/android/app/src/main/AndroidManifest.xml:37:13-30
+51
+52        <activity
+52-->[:url_launcher_android] /Users/sanuranjan/AndroidStudioProjects/np/sudoku/build/url_launcher_android/intermediates/merged_manifest/release/AndroidManifest.xml:10:9-13:74
+53            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
+53-->[:url_launcher_android] /Users/sanuranjan/AndroidStudioProjects/np/sudoku/build/url_launcher_android/intermediates/merged_manifest/release/AndroidManifest.xml:11:13-74
+54            android:exported="false"
+54-->[:url_launcher_android] /Users/sanuranjan/AndroidStudioProjects/np/sudoku/build/url_launcher_android/intermediates/merged_manifest/release/AndroidManifest.xml:12:13-37
+55            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+55-->[:url_launcher_android] /Users/sanuranjan/AndroidStudioProjects/np/sudoku/build/url_launcher_android/intermediates/merged_manifest/release/AndroidManifest.xml:13:13-71
+56
+57        <uses-library
+57-->[androidx.window:window:1.0.0-beta04] /Users/sanuranjan/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
+58            android:name="androidx.window.extensions"
+58-->[androidx.window:window:1.0.0-beta04] /Users/sanuranjan/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:26:13-54
+59            android:required="false" />
+59-->[androidx.window:window:1.0.0-beta04] /Users/sanuranjan/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:27:13-37
+60        <uses-library
+60-->[androidx.window:window:1.0.0-beta04] /Users/sanuranjan/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:28:9-30:40
+61            android:name="androidx.window.sidecar"
+61-->[androidx.window:window:1.0.0-beta04] /Users/sanuranjan/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:29:13-51
+62            android:required="false" />
+62-->[androidx.window:window:1.0.0-beta04] /Users/sanuranjan/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:30:13-37
+63    </application>
+64
+65</manifest>
