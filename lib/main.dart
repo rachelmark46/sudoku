@@ -4,11 +4,12 @@ import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sudoku_solver_generator/sudoku_solver_generator.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-
+import 'package:flutter_donation_buttons/donationButtons/githubSponsorButton.dart';
+import 'package:flutter_donation_buttons/flutter_donation_buttons.dart';
 
 import 'alerts/all.dart';
 import 'board_style.dart';
@@ -61,6 +62,10 @@ class HomePageState extends State<HomePage> {
   static String? currentDifficultyLevel;
   static String? currentTheme;
   static String? currentAccentColor;
+
+  openURL(String url) async {
+    await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
+  }
 
 
   static String platform = () {
@@ -186,10 +191,8 @@ class HomePageState extends State<HomePage> {
         isButtonDisabled = !isButtonDisabled;
         gameOver = true;
         Timer(const Duration(milliseconds: 500), () {
-          showAnimatedDialog<void>(
-              animationType: DialogTransitionType.fadeScale,
+          showDialog<void>(
               barrierDismissible: true,
-              duration: const Duration(milliseconds: 350),
               context: context,
               builder: (_) => const AlertGameOver()).whenComplete(() {
             if (AlertGameOver.newGame) {
@@ -313,10 +316,8 @@ class HomePageState extends State<HomePage> {
           onPressed: isButtonDisabled || gameCopy[k][i] != 0
               ? null
               : () {
-                  showAnimatedDialog<void>(
-                          animationType: DialogTransitionType.fade,
+                  showDialog<void>(
                           barrierDismissible: true,
-                          duration: const Duration(milliseconds: 300),
                           context: context,
                           builder: (_) => const AlertNumbersState())
                       .whenComplete(() {
@@ -442,10 +443,10 @@ class HomePageState extends State<HomePage> {
                   Navigator.pop(context);
                   Timer(
                       const Duration(milliseconds: 300),
-                      () => showAnimatedDialog<void>(
-                              animationType: DialogTransitionType.fadeScale,
+                      () => showDialog<void>(
+
                               barrierDismissible: true,
-                              duration: const Duration(milliseconds: 350),
+
                               context: outerContext,
                               builder: (_) => AlertDifficultyState(
                                   currentDifficultyLevel!)).whenComplete(() {
@@ -481,10 +482,10 @@ class HomePageState extends State<HomePage> {
                   Navigator.pop(context);
                   Timer(
                       const Duration(milliseconds: 200),
-                      () => showAnimatedDialog<void>(
-                              animationType: DialogTransitionType.fadeScale,
+                      () => showDialog<void>(
+
                               barrierDismissible: true,
-                              duration: const Duration(milliseconds: 350),
+
                               context: outerContext,
                               builder: (_) => AlertAccentColorsState(
                                   currentAccentColor!)).whenComplete(() {
@@ -509,10 +510,10 @@ class HomePageState extends State<HomePage> {
                   Navigator.pop(context);
                   Timer(
                       const Duration(milliseconds: 200),
-                      () => showAnimatedDialog<void>(
-                          animationType: DialogTransitionType.fadeScale,
+                      () => showDialog<void>(
+
                           barrierDismissible: true,
-                          duration: const Duration(milliseconds: 350),
+
                           context: outerContext,
                           builder: (_) => const AlertAbout()));
                 },
@@ -529,10 +530,9 @@ class HomePageState extends State<HomePage> {
           if (kIsWeb) {
             return false;
           } else {
-            showAnimatedDialog<void>(
-                animationType: DialogTransitionType.fadeScale,
+            showDialog<void>(
+
                 barrierDismissible: true,
-                duration: const Duration(milliseconds: 350),
                 context: context,
                 builder: (_) => const AlertExit());
           }
@@ -561,11 +561,10 @@ class HomePageState extends State<HomePage> {
                               icon: const Icon(Icons.close_rounded),
                               padding: const EdgeInsets.fromLTRB(8, 8, 20, 8),
                               onPressed: () {
-                                showAnimatedDialog<void>(
-                                    animationType:
-                                        DialogTransitionType.fadeScale,
+                                showDialog<void>(
+
                                     barrierDismissible: true,
-                                    duration: const Duration(milliseconds: 350),
+
                                     context: context,
                                     builder: (_) => const AlertExit());
                               },
@@ -580,13 +579,98 @@ class HomePageState extends State<HomePage> {
                       )),
             body: Builder(builder: (builder) {
               return Center(
-                child: Row(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[ /*KofiButton(
+                    kofiName: "flajt",
+                    kofiColor: KofiColor.Red,
+                    onDonation: () {
+                      // Runs after the button has been pressed
+                      debugPrint("On donation");
+                    },
+                  ),
+                    const PayPalButton(paypalButtonId: "T6NT2YYTVX6VS"),
+                    const PatreonButton(
+                        patreonName:
+                        "buttonshy"), // Just someone I stumbled across on Patreon as an example, not affiliated with him
+                   */ const BuyMeACoffeeButton(
+                    text: "Support Us!",
+                    buyMeACoffeeName: "rachelmark",
+                    color: BuyMeACoffeeColor.Green,
+                    //Allows custom styling
+
+
+                  ),const SizedBox(width: 10,height: 10,),Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: createRows(),
-                )],
-              ));
+                ),],
+
+              ), const SizedBox(height: 40),Row(
+
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [InkWell(
+                        onTap: () => openURL("https://www.ppixel.org/"),
+                        //child: const Text("About Us"),
+                        child: Container(
+                          height:20,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Colors.yellowAccent,
+                            ),
+                            color: Colors.greenAccent,
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          alignment: Alignment.center,
+                          child: Text('Website',
+                              selectionColor: Colors.black,
+                              style: TextStyle(fontWeight: FontWeight.bold,decoration: TextDecoration.underline)),
+                          padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                        ),
+                      ),
+                        const SizedBox(width: 10),
+                        InkWell(
+                          onTap: () => openURL("https://play.google.com/store/apps/dev?id=4684038700724915494"),
+                          //child: const Text("About Us"),
+                          child: Container(
+                            height:20,
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: Colors.yellowAccent,
+                              ),
+                              color: Colors.greenAccent,
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            alignment: Alignment.center,
+                            child: Text('Other Apps',selectionColor: Colors.black,
+                                style: TextStyle(fontWeight: FontWeight.bold,decoration: TextDecoration.underline)),
+                            padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                          ),
+                        ),const SizedBox(width: 10),
+                        InkWell(
+                          onTap: () => openURL("https://www.ppixel.org/digital-ai-products"),
+                          //child: const Text("About Us"),
+                          child: Container(
+                            height:20,
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: Colors.greenAccent,
+                              ),
+                              color: Colors.greenAccent,
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            alignment: Alignment.center,
+                            child: Text('Others',selectionColor: Colors.black,
+                                style: TextStyle(fontWeight: FontWeight.bold,decoration: TextDecoration.underline)),
+                            padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                          ),
+                        ),
+                      ]),]));
             }),
             floatingActionButton: FloatingActionButton(
               foregroundColor: Styles.primaryBackgroundColor,
